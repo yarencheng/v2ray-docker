@@ -4,7 +4,7 @@
 FROM golang:alpine AS builder
 RUN apk update && apk add --no-cache git bash wget curl
 WORKDIR /go/src/v2ray.com/core
-RUN git clone --progress --branch v4.25.0 https://github.com/v2fly/v2ray-core.git .
+RUN git clone --progress --branch v4.25.1 https://github.com/v2fly/v2ray-core.git .
 RUN bash ./release/user-package.sh nosource noconf codename=$(git describe --tags) buildname=docker-fly abpathtgz=/tmp/v2ray.tgz
 ############################
 # STEP 2 build a small image
